@@ -36,6 +36,7 @@ while (option1 != "x"){
     while (fnb != "Q"){
       print("Your F&B choice?")
       let fnb = readLine()
+      // fnb = fnb.uppercased()
       print("")
 
       if fnb == "F03"{
