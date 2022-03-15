@@ -1,10 +1,10 @@
 var option1 : String = "a"
 var fnb : String = ""
 var howMany : Int
-var fnbMenu = [String]()
-var fnbCount = [Int]()
+var fnbMenu : [String] = []
+var fnbCount : [String] = []
 
-while (option1 != "x"){
+while ((option1.lowercased()) != "x"){
   print("============================")
   print("    Point of Sales (PoS)"    )
   print("============================")
@@ -17,8 +17,7 @@ while (option1 != "x"){
   print("")
 
   print("Your choise?")
-  let option1 = readLine() 
-  // var option1result = option1.lowercased()
+  let option1 = readLine() ?? ""
   print("")
   
   if option1 == "1"{
@@ -33,53 +32,52 @@ while (option1 != "x"){
       print("[Q] Back to Main Menu")
       print("")
 
-    while (fnb != "Q"){
+    while ((fnb.uppercased()) != "Q"){
       print("Your F&B choice?")
-      let fnb = readLine()
-      // fnb = fnb.uppercased()
+      let fnb = readLine() ?? ""
       print("")
 
-      if fnb == "F03"{
+      if (fnb.uppercased()) == "F03"{
         print("How many Gado-Gado you want to buy?")
-        let howMany = readLine()
+        let howMany = readLine() ?? ""
         print("")
 
-        // fnbMenu.append(fnb)
-        // fnbCount.append(howMany)
+        fnbMenu.append("Gado-Gado")
+        fnbCount.append(howMany)
         
-      } else if fnb == "F02"{
+      } else if (fnb.uppercased()) == "F02"{
         print("How many Chicken Satay you want to buy?")
-        let howMany = readLine()
+        let howMany = readLine() ?? ""
         print("")
 
-        // fnbMenu.append(fnb)
-        // fnbCount.append(howMany)
+        fnbMenu.append("Chicken Satay")
+        fnbCount.append(howMany)
         
-      } else if fnb == "F01"{
+      } else if (fnb.uppercased()) == "F01"{
         print("How many Nasi Padang you want to buy?")
-        let howMany = readLine()
+        let howMany = readLine() ?? ""
         print("")
 
-        // fnbMenu.append(fnb)
-        // fnbCount.append(howMany)
+        fnbMenu.append("Nasi Padang")
+        fnbCount.append(howMany)
         
-      } else if fnb == "B02"{
+      } else if (fnb.uppercased()) == "B02"{
         print("How many Mineral Water you want to buy?")
-        let howMany = readLine()
+        let howMany = readLine() ?? ""
         print("")
 
-        // fnbMenu.append(fnb)
-        // fnbCount.append(howMany)
+        fnbMenu.append("Mineral Water")
+        fnbCount.append(howMany)
         
-      } else if fnb == "F01"{
+      } else if (fnb.uppercased()) == "B01"{
         print("How many Ice Tea you want to buy?")
-        let howMany = readLine()
+        let howMany = readLine() ?? ""
         print("")
 
-        // fnbMenu.append(fnb)
-        // fnbCount.append(howMany)
+        fnbMenu.append("Ice Tea")
+        fnbCount.append(howMany)
         
-      } else if fnb == "Q"{
+      } else if (fnb.uppercased()) == "Q"{
         break
         
       } else {
@@ -93,9 +91,22 @@ while (option1 != "x"){
     }
      
   } else if option1 == "2" {
-    print("Option 2")
+    if fnbMenu.isEmpty && fnbCount.isEmpty {
+      print("Shopping cart is empty!")
+    } else {
+      var i = 0
+      let arrayCount = fnbMenu.count
+
+      print("Shopping Cart (\(arrayCount) items)")
+      while i<arrayCount{
+        print("\(fnbCount[i])" + " \(fnbMenu[i])")
+        i += 1
+      }
+      print("")
+          
+    }
       
-  } else if option1 == "x"{
+  } else if (option1.lowercased()) == "x"{
       break
     
   } else {
